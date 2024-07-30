@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Personal</title>
+    <!-- Favicon -->
+    <link rel="icon" href="https://example.com/favicon.ico" type="image/x-icon">
+    <!-- Enlace a Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Enlace a Font Awesome para los iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #e1e1e1;
+            background-color: #121212;
+            overflow-x: hidden;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        /* Tema claro */
+        body.light-theme {
+            background-color: #ffffff;
+            color: #333333;
+        }
+        body.light-theme header,
+        body.light-theme footer,
+        body.light-theme nav {
+            background-color: #f5f5f5;
+            color: #333333;
+        }
+        body.light-theme .menu a {
+            background-color: #0078d4;
+            color: #ffffff;
+        }
+        body.light-theme .menu a:hover {
+            background-color: #005a9e;
+        }
+        header {
+            background-color: #1f1f1f;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            position: relative;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 250px;
+            background-color: #2d2d2d;
+            color: #ffffff;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+            padding-top: 60px;
+            overflow-y: auto;
+        }
+        nav.open {
+            transform: translateX(0);
+        }
+        .menu {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            padding: 20px;
+        }
+        .menu a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            padding: 15px 20px;
+            border-radius: 8px;
+            background-color: #0078d4;
+            transition: background-color 0.3s, transform 0.3s;
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 16px;
+        }
+        .menu a:hover {
+            background-color: #005a9e;
+            transform: translateY(-2px);
+        }
+        .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+            color: #ffffff;
+            background-color: #0078d4;
+            padding: 12px;
+            border-radius: 50%;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            transition: background-color 0.3s;
+        }
+        .menu-icon:hover {
+            background-color: #005a9e;
+        }
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #0078d4;
+            color: #ffffff;
+            border: none;
+            border-radius: 50%;
+            padding: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            z-index: 1000;
+        }
+        .theme-toggle:hover {
+            background-color: #005a9e;
+        }
+        section {
+            padding: 40px;
+            margin: 20px;
+            background-color: #1f1f1f;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease-out;
+            position: relative;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #2d2d2d;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            animation: fadeIn 2s ease-in-out;
+        }
+        h1, h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: #ffffff;
+            animation: slideInFromLeft 1s ease-out;
+        }
+        @keyframes slideInFromLeft {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        .r2d2-img {
+            display: block;
+            margin: 20px auto;
+            max-width: 200px;
+            height: auto;
+        }
+        .datetime {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #333333;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            font-size: 18px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🛠️⚙️</h1>
+        <p>Actualizando.....</p>
+        <!-- Imagen de R2-D2 -->
+        <img src="https://drawinghowtos.com/wp-content/uploads/2020/02/r2d2-colored.jpg" alt="R2-D2" class="r2d2-img">
+    </header>
+    <nav id="sidebar">
+        <div class="menu">
+            <a href="#about"><i class="fas fa-user nav-icon"></i>Acerca de</a>
+            <a href="#projects"><i class="fas fa-project-diagram nav-icon"></i>Proyectos</a>
+            <a href="#contact"><i class="fas fa-envelope nav-icon"></i>Contacto</a>
+        </div>
+    </nav>
+    <div class="menu-icon" id="menu-icon"><i class="fas fa-bars"></i></div>
+    <button class="theme-toggle" id="theme-toggle"><i class="fas fa-moon"></i></button>
+    <section id="about">
+        <h2>Sobre Mí</h2>
+        <p>.....</p>
+    </section>
+    <section id="projects">
+        <h2>Proyectos</h2>
+        <p>.....</p>
+    </section>
+    <section id="contact">
+        <h2>Contacto</h2>
+        <p>em_ang@oficial.mx</p>
+    </section>
+    <footer>
+        <p>&copy; 2024 Angelo. Todos los derechos reservados.</p>
+    </footer>
+    <div class="datetime" id="datetime"></div>
+    <script>
+        // Script para el menú de navegación
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuIcon = document.getElementById('menu-icon');
+            const sidebar = document.getElementById('sidebar');
+            const themeToggle = document.getElementById('theme-toggle');
+            const datetimeElement = document.getElementById('datetime');
+
+            menuIcon.addEventListener('click', () => {
+                sidebar.classList.toggle('open');
+            });
+
+            themeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('light-theme');
+                themeToggle.innerHTML = document.body.classList.contains('light-theme') 
+                    ? '<i class="fas fa-sun"></i>' 
+                    : '<i class="fas fa-moon"></i>';
+            });
+
+            function updateDateTime() {
+                const now = new Date();
+                const dateString = now.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+                const timeString = now.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+                datetimeElement.textContent = `${dateString} - ${timeString}`;
+            }
+
+            updateDateTime();
+            setInterval(updateDateTime, 1000);
+        });
+    </script>
+</body>
+</html>
